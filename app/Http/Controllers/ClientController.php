@@ -19,7 +19,13 @@ class ClientController extends Controller
         return response()->json($clients);
     }
 
-
+    public function showClient(Request $request)
+    {
+        $client = Client::find($request->client_id);
+        //populate services
+        $client->services;
+        return response()->json($client, 200);
+    }
     /**
      * Store a newly created resource in storage.
      *
